@@ -59,19 +59,6 @@ public class CountdateWidget extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.countdate_widget);
             views.setOnClickPendingIntent(R.id.countdate_widget_text1, pendingIntent);
             views.setOnClickPendingIntent(R.id.countdate_widget_text2, pendingIntent2);
-//            Intent updateIntent = new Intent();
-//            updateIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-//            PendingIntent updatePendingIntent = PendingIntent.getBroadcast(context, 0, updateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-//            views.setOnClickPendingIntent(R.id.countdate_widget_text2, updatePendingIntent);
-
-//            Intent intentUpdate = new Intent(context, CountdateWidget.class);
-//            intentUpdate.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-//            int[] idArray = new int[]{appWidgetId};
-//            intentUpdate.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, idArray);
-//            PendingIntent pendingUpdate = PendingIntent.getBroadcast(
-//                    context, appWidgetId, intentUpdate,
-//                    PendingIntent.FLAG_UPDATE_CURRENT);
-//            views.setOnClickPendingIntent(R.id.countdate_widget_text2, pendingUpdate);
 
             views.setCharSequence(R.id.countdate_widget_text1,"setText", eventName+" "+countdownup);
             views.setCharSequence(R.id.countdate_widget_text2,"setText", numOfDays);

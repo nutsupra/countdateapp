@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center_horizontal"
+    android:padding="16dp"
     tools:context=".CountdateWidgetConfig">
 
     <TextView
@@ -13,17 +13,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choose one event to add widget"
-        android:textSize="24sp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1. The widget won't update after editing the event. Try removing and add it again.\n2. This widget feature is still in beta." />
+        android:text="1. The widget won't update after editing the event. Try removing and add it again.\n2. This widget feature is still in beta."
+        android:textSize="14sp"
+        android:textColor="#757575"
+        android:layout_marginBottom="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        android:layout_marginBottom="8dp" />
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp" />
 
 </LinearLayout>
