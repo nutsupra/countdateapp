@@ -57,7 +57,6 @@ public class CountdateWidgetConfig extends AppCompatActivity {
         if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID){
             finish();
         }
-        //editTextButton = findViewById(R.id.edit_text_button);
 
         // Read countdates
         eventsList = new ArrayList<>();
@@ -114,15 +113,11 @@ public class CountdateWidgetConfig extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-        //String buttonText = editTextButton.getText().toString();
-        //String eventId = eventsList.get(position).get("id");
         String eventName = eventsList.get(position).get("name");
         String eventDate = eventsList.get(position).get("date");
-        //System.out.println(eventDate);
 
         RemoteViews views = new RemoteViews(this.getPackageName(), R.layout.countdate_widget);
-//        views.setOnClickPendingIntent(R.id.countdate_widget_text1,pendingIntent);
-        views.setOnClickPendingIntent(R.id.countdate_widget_text2,pendingIntent);
+        views.setOnClickPendingIntent(R.id.countdate_widget_text2, pendingIntent);
 
         String numOfDays = "";
         String countdownup = "⬇️ Countdown";

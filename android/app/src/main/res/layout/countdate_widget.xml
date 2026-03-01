@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#05989e"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/widget_background"
+    android:padding="12dp">
 
-    <TextView
-        android:id="@+id/countdate_widget_text1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:contentDescription="Widget name"
-        android:fontFamily="monospace"
-        android:gravity="top"
-        android:text="No Data"
-        android:textColor="#ffffff"
-        android:textSize="11sp"
-        android:textStyle="bold" />
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/countdate_widget_text2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="Widget name"
-        android:text="Retry"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/countdate_widget_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Event name"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="No Data"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/countdate_widget_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Days remaining"
+            android:gravity="center"
+            android:text="Retry"
+            android:textColor="#ffffff"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:maxLines="1" />
+    </LinearLayout>
+
+</RelativeLayout>
