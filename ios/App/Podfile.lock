@@ -1,27 +1,27 @@
 PODS:
-  - Capacitor (8.0.1):
+  - Capacitor (8.1.0):
     - CapacitorCordova
-  - CapacitorApp (8.0.0):
+  - CapacitorApp (8.0.1):
     - Capacitor
-  - CapacitorClipboard (8.0.0):
+  - CapacitorClipboard (8.0.1):
     - Capacitor
-  - CapacitorCordova (8.0.1)
-  - CapacitorDevice (8.0.0):
+  - CapacitorCordova (8.1.0)
+  - CapacitorDevice (8.0.1):
     - Capacitor
-  - CapacitorFilesystem (8.0.0):
+  - CapacitorFilesystem (8.1.2):
     - Capacitor
-    - IONFilesystemLib (~> 1.0.1)
+    - IONFilesystemLib (~> 1.1.1)
   - CapacitorKeyboard (8.0.0):
     - Capacitor
-  - CapacitorLocalNotifications (8.0.0):
+  - CapacitorLocalNotifications (8.0.1):
     - Capacitor
-  - CapacitorPreferences (8.0.0):
+  - CapacitorPreferences (8.0.1):
     - Capacitor
-  - CapacitorShare (8.0.0):
+  - CapacitorShare (8.0.1):
     - Capacitor
-  - CapacitorToast (8.0.0):
+  - CapacitorToast (8.0.1):
     - Capacitor
-  - IONFilesystemLib (1.0.1)
+  - IONFilesystemLib (1.1.1)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -65,18 +65,18 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/toast"
 
 SPEC CHECKSUMS:
-  Capacitor: ff35b0f66370b84aa238251b35b91886a3207c16
-  CapacitorApp: 3963a84197280757b84f126afd1520a85ae3b092
-  CapacitorClipboard: 61832a3722adc61afed6e0191c8a0e11ba11674d
-  CapacitorCordova: 0d65b9bb74e995dcecb9463f34f1af2aba6f955c
-  CapacitorDevice: 9a16fb36a19ff391bf75afbe3cf16f883b3b3aa0
-  CapacitorFilesystem: 2cb7c29536024668f333266a2177f8c10bbd9c98
+  Capacitor: 47b825120c6b8b6d6f9f053e9350a8960d436710
+  CapacitorApp: 942306cd1acf7774a00e89a3986af3a67c8cad7a
+  CapacitorClipboard: c75fdaa6e622111119f35e7914ecfc67b05efecb
+  CapacitorCordova: e8b76fd95fc1e157775abc484c59cc0de464095d
+  CapacitorDevice: ff033fa0c4ec19f5e059a073769a9b2347e69f57
+  CapacitorFilesystem: 2db285a1ac6e475cc27cae2e1bea999000f9e2be
   CapacitorKeyboard: d7868c079a4d5277a3deca27a10a488fcbbb8b69
-  CapacitorLocalNotifications: 177cfbf8228d9bd82a147e094cb7984d7afb9e29
-  CapacitorPreferences: 443fabe9670226200e595658a87ef0b1566716d4
-  CapacitorShare: 12f1d192170cbcf9f108fd675ac8e343761a4638
-  CapacitorToast: aefebcd4cead9f44a04ace80c66a7eb4031751e7
-  IONFilesystemLib: 89258b8e3e85465da93127d25d7ce37f977e8a6f
+  CapacitorLocalNotifications: bc5325611c92ac302732413bc69244575cd4eaaf
+  CapacitorPreferences: cca2021f386efb75947c850334447d9ff22b14f1
+  CapacitorShare: 0c58305114538568059bfc07111f22dcb9cb2a82
+  CapacitorToast: 408036fbd702120d3adde3980b740f3c0fb60c9e
+  IONFilesystemLib: dfa8706539ac9ab77ccfd6e5b3830ce9b5e57f6c
 
 PODFILE CHECKSUM: 6294d4442c13fc7a6e0d66fd1cc4de0ff7b89947
 
