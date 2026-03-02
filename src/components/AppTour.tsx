@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
