@@ -1,7 +1,7 @@
-# --------------------------------------------------
-# CountDateApp APK Builder
-# Fast build + clean old releases
-# --------------------------------------------------
+# -------------------------------------------------------
+# CountDateApp APK Builder (Stable / Hardened CI)
+# Designed for Ionic + Capacitor Android build
+# -------------------------------------------------------
 
 name: Build and Release APK
 
@@ -12,49 +12,66 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04   # pin OS เพื่อลด environment drift
 
     steps:
 
-    # --------------------------------------------------
-    # Checkout repository
-    # --------------------------------------------------
+    # ---------------------------------------------------
+    # Checkout source
+    # ---------------------------------------------------
     - name: Checkout source
       uses: actions/checkout@v4
 
-    # --------------------------------------------------
-    # Setup Node (Ionic / React build)
-    # --------------------------------------------------
+    # ---------------------------------------------------
+    # Setup Node (pin version)
+    # ---------------------------------------------------
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 18.19
         cache: npm
 
-    # --------------------------------------------------
-    # Install dependencies (เร็วกว่า npm install)
-    # --------------------------------------------------
+    # ---------------------------------------------------
+    # Install dependencies
+    # ใช้ lockfile → reproducible build
+    # ---------------------------------------------------
     - name: Install dependencies
       run: npm ci
 
-    # --------------------------------------------------
+    # ---------------------------------------------------
     # Build web assets
-    # --------------------------------------------------
-    - name: Build web app
+    # ---------------------------------------------------
+    - name: Build web assets
       run: npm run build
 
-    # --------------------------------------------------
+    # ---------------------------------------------------
+    # Setup Android SDK
+    # ---------------------------------------------------
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+
+    # ---------------------------------------------------
+    # Install required Android SDK components
+    # lock build-tools + platform
+    # ---------------------------------------------------
+    - name: Install Android SDK packages
+      run: |
+        sdkmanager "platform-tools"
+        sdkmanager "platforms;android-34"
+        sdkmanager "build-tools;34.0.0"
+
+    # ---------------------------------------------------
     # Setup Capacitor Android
-    # --------------------------------------------------
-    - name: Setup Capacitor Android
+    # ---------------------------------------------------
+    - name: Setup Capacitor
       run: |
         npm install @capacitor/android
         npx cap add android || true
         npx cap sync android
 
-    # --------------------------------------------------
-    # Setup Java for Android build
-    # --------------------------------------------------
+    # ---------------------------------------------------
+    # Setup Java (Gradle)
+    # ---------------------------------------------------
     - name: Setup Java
       uses: actions/setup-java@v4
       with:
@@ -62,26 +79,27 @@ jobs:
         java-version: 17
         cache: gradle
 
-    # --------------------------------------------------
-    # Build APK
-    # --------------------------------------------------
-    - name: Build APK
+    # ---------------------------------------------------
+    # Gradle build
+    # --no-daemon ลด memory issue
+    # ---------------------------------------------------
+    - name: Build Android APK
       run: |
         cd android
         chmod +x gradlew
-        ./gradlew assembleDebug
+        ./gradlew assembleDebug --no-daemon --stacktrace
 
-    # --------------------------------------------------
-    # Rename APK
-    # --------------------------------------------------
-    - name: Rename APK
+    # ---------------------------------------------------
+    # Prepare APK file
+    # ---------------------------------------------------
+    - name: Prepare release file
       run: |
         mkdir release
         cp android/app/build/outputs/apk/debug/app-debug.apk release/countdateapp.apk
 
-    # --------------------------------------------------
+    # ---------------------------------------------------
     # Delete old releases
-    # --------------------------------------------------
+    # ---------------------------------------------------
     - name: Delete old releases
       uses: dev-drprasad/delete-older-releases@v0.3.4
       with:
@@ -89,12 +107,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # --------------------------------------------------
-    # Create new release
-    # --------------------------------------------------
+    # ---------------------------------------------------
+    # Create GitHub Release
+    # ---------------------------------------------------
     - name: Create release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: latest-build
+        tag_name: latest
         name: Latest APK Build
         files: release/countdateapp.apk
