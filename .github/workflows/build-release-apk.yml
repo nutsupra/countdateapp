@@ -32,12 +32,6 @@ jobs:
       run: npm install
 
     # -----------------------------------
-    # build web (ionic/react)
-    # -----------------------------------
-    - name: Build web
-      run: npm run build
-
-    # -----------------------------------
     # install android sdk
     # -----------------------------------
     - name: Setup Android SDK
